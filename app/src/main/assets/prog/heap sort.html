@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: #292828;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Heap Sort</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+ 
+
+<br>
+
+void maxHeap(int *a,int i,int n){<br>
+    &nbsp;&nbsp;int j,element;<br>
+
+    &nbsp;&nbsp;j = 2*i;<br>
+    &nbsp;&nbsp;element = a[i];<br>
+    &nbsp;&nbsp;while(j<= n){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if(j<n && a[j] < a[j+1]){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j++;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if(element >= a[j])<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;a[j/2] = a[j];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;j=2*j;<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;a[j/2] = element;<br>
+}<br>
+<br>
+void buildHeap(int *a,int n){<br>
+   &nbsp;&nbsp; int i;<br>
+    &nbsp;&nbsp;for(i = n/2;i>=1;i--){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;maxHeap(a,i,n);<br>
+    &nbsp;&nbsp;}<br>
+}<br>
+<br>
+int main(){<br>
+    &nbsp;&nbsp;int *a,n,i,temp;<br>
+
+    &nbsp;&nbsp;printf("Enter the size of array:\n");<br>
+    &nbsp;&nbsp;scanf("%d",&amp;n);<br>
+
+    &nbsp;&nbsp;a = (int *)malloc(sizeof(int)*n);<br>
+
+    &nbsp;&nbsp;printf("Enter the %d elements:\n",n);<br>
+    &nbsp;&nbsp;for(i=1;i<=n;i++)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;scanf("%d",a+i);<br>
+
+
+    &nbsp;&nbsp;buildHeap(a,n);<br>
+
+    &nbsp;&nbsp;for(i=n;i>=2;i--){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;temp = a[1];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;a[1] = a[i];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;a[i] = temp;<br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;maxHeap(a,1,i-1);<br>
+    &nbsp;&nbsp;}<br>
+
+    &nbsp;&nbsp;printf("\nafter sorting:\n ");<br>
+    &nbsp;&nbsp;for(i=1;i<=n;i++)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;printf("%d  ",a[i]);<br>
+
+   &nbsp;&nbsp;return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>

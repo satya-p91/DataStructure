@@ -1,0 +1,123 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Doubly Linked List</center></h2>
+
+<p class="meme">
+
+#include&#8826;stdio.h&#8827;<br>
+#include&#8826;stdlib.h&#8827;<br>
+#include&#8826;process.h&#8827;<br>
+<br>struct Node{<br>
+&emsp; int data;<br>
+&emsp;struct Node *next;<br>
+&emsp;struct Node *prev;<br>
+};<br>
+
+<br>int insert_beg(struct Node** head_ref, int new_data){<br>
+&emsp;struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));<br>
+&emsp;new_node->data  = new_data;<br>
+&emsp;new_node->next = (*head_ref);<br>
+&emsp;new_node->prev = NULL;<br>
+&emsp;if((*head_ref) !=  NULL)<br>
+&emsp;&emsp;(*head_ref)->prev = new_node ;<br>
+&emsp;(*head_ref)    = new_node;<br>
+&emsp;return 0;<br>
+}<br>
+<br>int insert_pos(struct Node* prev_node, int new_data){<br>
+
+&emsp;if (prev_node == NULL){<br>
+&emsp;&emsp;printf("the given previous node cannot be NULL");<br>
+&emsp;&emsp;return 0;<br>
+&emsp;}<br>
+&emsp;struct Node* new_node =(struct Node*) malloc(sizeof(struct Node));<br>
+&emsp;new_node->data  = new_data;<br>
+&emsp;new_node->next = prev_node->next;<br>
+&emsp;prev_node->next = new_node;<br>
+&emsp;new_node->prev = prev_node;<br>
+&emsp;if (new_node->next != NULL)<br>
+&emsp;&emsp;new_node->next->prev = new_node;<br>
+&emsp;return 0;<br>
+}<br>
+
+<br>int insert_end(struct Node** head_ref, int new_data){<br>
+&emsp;struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));<br>
+&emsp; struct Node *last = *head_ref;<br>
+&emsp;new_node->data  = new_data;<br>
+&emsp;new_node->next = NULL;<br>
+
+&emsp;if (*head_ref == NULL){<br>
+&emsp;&emsp;new_node->prev = NULL;<br>
+&emsp;&emsp;*head_ref = new_node;<br>
+&emsp;&emsp;return 0;<br>
+&emsp;}<br>
+&emsp;while (last->next != NULL)<br>
+&emsp;&emsp;last = last->next;<br>
+&emsp;last->next = new_node;<br>
+&emsp;new_node->prev = last;<br>
+&emsp;return 0;<br>
+}<br>
+<br>int deleteNode(struct Node **head_ref, struct Node *del){<br>
+
+&emsp;if(*head_ref == NULL || del == NULL)<br>
+&emsp;&emsp;return 0;<br>
+
+&emsp;if(*head_ref == del)<br>
+&emsp;&emsp;*head_ref = del->next;<br>
+
+&emsp;if(del->next != NULL)<br>
+&emsp;&emsp;del->next->prev = del->prev;<br>
+
+&emsp;if(del->prev != NULL)<br>
+&emsp;&emsp;del->prev->next = del->next;<br>
+&emsp;free(del);<br>
+&emsp;return 0;<br>
+}<br>
+void display(struct Node *node){<br>
+&emsp;struct Node *last;<br>
+&emsp;while (node != NULL){<br>
+&emsp;&emsp;printf(" %d <->", node->data);<br>
+&emsp;&emsp;last = node;<br>
+&emsp;&emsp;node = node->next;<br>
+&emsp;}<br>
+&emsp;printf("null\n");<br>
+}<br>
+int main(){<br>
+/*there are no user's i/p option, but you can make it similarly as singly linked list*/ <br>
+&emsp;struct Node* head = NULL;<br>
+&emsp;insert_end(&amp;head, 6);<br>
+&emsp;insert_beg(&amp;head, 7);<br>
+&emsp;insert_beg(&amp;head, 1);<br>
+&emsp;insert_end(&amp;head, 4);<br>
+&emsp;insert_pos(head->next, 8);<br>
+&emsp;printf("Created DLL is: \n");<br>
+&emsp;display(head);<br>
+&emsp;deleteNode(&amp;head , head);<br>
+&emsp;printf("after deleting 1st element\n");<br>
+&emsp;display(head);<br>
+&emsp;return 0;<br>
+}<br></strong></p>
+</body>
+</html>
+

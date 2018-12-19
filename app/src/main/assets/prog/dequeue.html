@@ -1,0 +1,180 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet">
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Dequeue</center></h2>
+
+<p class="meme">
+
+#include&#8826;stdio.h&#8827;<br>
+#include&#8826;process.h&#8827;<br>
+
+
+<br>struct node {<br>
+    &emsp;int data;<br>
+    &emsp;struct node *prev, *next;<br>
+  };<br>
+<br>
+  struct node *head = NULL, *tail = NULL;<br>
+
+ <br> struct node * createNode(int data) {<br>
+    &emsp;struct node *newnode = (struct node *)malloc(sizeof (struct node));<br>
+    &emsp;newnode->data = data;<br>
+    &emsp;newnode->next = newnode->prev = NULL;<br>
+    &emsp;return (newnode);<br>
+  }<br>
+
+   /*<br>
+    &emsp;* create sentinel(dummy head &amp; tail)<br> 
+    &emsp;* that helps us to do insertion and<br>
+    &emsp;* deletion operation at front and <br>
+    &emsp;* rear so easily.  And these dummy<br>
+    &emsp;* head and tail wont get deleted till <br>
+    &emsp;* the end of execution of this program<br>
+    */<br>
+
+  <br>void createSentinels() {<br>
+    &emsp;head = createNode(0);<br>
+    &emsp;tail = createNode(0);<br>
+    &emsp;head->next = tail;<br>
+    &emsp;tail->prev = head;<br>
+  }<br>
+
+  /* insertion at the front of the queue */<br>
+  <br>void enqueueAtFront(int data) {<br>
+        &emsp;struct node *newnode, *temp;<br>
+        &emsp;newnode = createNode(data);<br>
+        &emsp;temp = head->next;<br>
+        &emsp;head->next = newnode;<br>
+        &emsp;newnode->prev = head;<br>
+        &emsp;newnode->next = temp;<br>
+        &emsp;temp->prev = newnode;<br>
+        &emsp;temp->prev = newnode;<br>
+        &emsp;temp->prev = newnode;<br>
+  }<br>
+
+  /*insertion at the rear of the queue */<br>
+  <br>void enqueueAtRear(int data) {<br>
+       &emsp;struct node *newnode, *temp;<br>
+       &emsp;newnode = createNode(data);<br>
+       &emsp;newnode = createNode(data);<br>
+       &emsp;temp = tail->prev;<br>
+       &emsp;tail->prev = newnode;<br>
+       &emsp;newnode->next = tail;<br>
+       &emsp;newnode->prev = temp;<br>
+       &emsp;temp->next = newnode;<br>
+  }<br>
+
+  /* deletion at the front of the queue */<br>
+  <br>void dequeueAtFront() {<br>
+        &emsp;struct node *temp;<br>
+        &emsp;if (head->next == tail) {<br>
+                &emsp;&emsp;printf("Queue is empty\n");<br>
+        &emsp;} else {<br>
+               &emsp;&emsp; temp = head->next;<br>
+               &emsp;&emsp; head->next = temp->next;<br>
+               &emsp;&emsp; temp->next->prev = head;<br>
+               &emsp;&emsp; free(temp);<br>
+        &emsp;}<br>
+        &emsp;return;<br>
+  }<br>
+
+
+  /* deletion at the rear of the queue */<br>
+
+  <br>void dequeueAtRear()  {<br>
+        &emsp;struct node *temp;<br>
+       &emsp; if (tail->prev == head) {<br>
+                &emsp;&emsp;printf("Queue is empty\n");<br>
+        &emsp;} else {<br>
+               &emsp;&emsp; temp = tail->prev;<br>
+                &emsp;&emsp;tail->prev = temp->prev;<br>
+                &emsp;&emsp;temp->prev->next = tail;<br>
+                &emsp;&emsp;free(temp);<br>
+        &emsp;}<br>
+        &emsp;return;<br>
+  }<br>
+
+  /* display elements present in the queue */<br>
+  <br>void display() {<br>
+        &emsp;struct node *temp;<br>
+
+        &emsp;if (head->next == tail) {<br>
+               &emsp;&emsp; printf("Queue is empty\n");<br>
+                &emsp;&emsp;return;<br>
+        &emsp;}<br>
+
+        &emsp;temp = head->next;<br>
+        &emsp;while (temp != tail) {<br>
+               &emsp;&emsp; printf("%d<->", temp->data);<br>
+                &emsp;&emsp;temp = temp->next;<br>
+        &emsp;}<br>
+        &emsp;printf("null\n");<br>
+  }<br>
+
+  <br>int main() {<br>
+        &emsp;int data, ch;<br>
+        &emsp;createSentinels();<br>
+        &emsp;while (1) {<br>
+                &emsp;&emsp;printf("1. EnqueueAtFront  2. EnqueueAtRear\n");<br>
+                &emsp;&emsp;printf("3. DequeueAtFront  4. DequeueAtRear\n");<br>
+                &emsp;&emsp;printf("5. Display 6. Exit\n");<br>
+                &emsp;&emsp;printf("Enter your choice:");<br>
+                &emsp;&emsp;scanf("%d", &amp;ch);<br>
+                &emsp;&emsp;switch (ch) {<br>
+                        &emsp;&emsp;&emsp;case 1:<br>
+                                &emsp;&emsp;&emsp;&emsp;printf("Enter the data to insert:");<br>
+                                &emsp;&emsp;&emsp;&emsp;scanf("%d", &amp;data);<br>
+                                &emsp;&emsp;&emsp;&emsp;enqueueAtFront(data);<br>
+                                &emsp;&emsp;&emsp;&emsp;break;<br>
+
+                        &emsp;&emsp;&emsp;case 2:<br>
+                                &emsp;&emsp;&emsp;&emsp;printf("Enter ur data to insert:");<br>
+                               &emsp;&emsp;&emsp;&emsp; scanf("%d", &smp;data);<br>
+                                &emsp;&emsp;&emsp;&emsp;enqueueAtRear(data);<br>
+                                &emsp;&emsp;&emsp;&emsp;break;<br>
+
+                        &emsp;&emsp;&emsp;case 3:<br>
+                                &emsp;&emsp;&emsp;&emsp;dequeueAtFront();<br>
+                                &emsp;&emsp;&emsp;&emsp;break;<br>
+
+                        &emsp;&emsp;&emsp;case 4:<br>
+                                &emsp;&emsp;&emsp;&emsp;dequeueAtRear();<br>
+                               &emsp;&emsp;&emsp;&emsp; break;<br>
+
+                       &emsp;&emsp;&emsp; case 5:<br>
+                               &emsp;&emsp;&emsp;&emsp; display();<br>
+                                &emsp;&emsp;&emsp;&emsp;break;<br>
+
+                        &emsp;&emsp;&emsp;case 6:<br>
+                                &emsp;&emsp;&emsp;&emsp;exit(0);<br>
+
+                        &emsp;&emsp;&emsp;default:<br>
+                               &emsp;&emsp;&emsp;&emsp; printf("Choose valid option\n");<br>
+                                &emsp;&emsp;&emsp;&emsp;break;<br>
+                &emsp;&emsp;}<br>
+       &emsp; }<br>
+&emsp;return 0;<br>
+}<br></strong></p>
+</body>
+</html>

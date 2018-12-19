@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet">
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Queue using Linked List</center></h2>
+
+<p class="meme">
+
+#include&#8826;stdio.h&#8827;<br>
+#include&#8826;process.h&#8827;<br>
+<br>struct Node{<br>
+&emsp;int data;<br>
+&emsp;struct Node *next;<br>
+}*front = NULL,*rear = NULL;<br>
+
+<br>void insert(int value){<br>
+&emsp;struct Node *newNode;<br>
+&emsp;newNode = (struct Node*)malloc(sizeof(struct Node));<br>
+&emsp;newNode->data = value;<br>
+&emsp;newNode -> next = NULL;<br>
+&emsp;if(front == NULL)<br>
+&emsp;&emsp;front = rear = newNode;<br>
+&emsp;else{<br>
+&emsp;&emsp;rear -> next = newNode;<br>
+&emsp;&emsp;rear = newNode;<br>
+&emsp;}<br>
+&emsp;printf("%d is inserted\n" , value);<br>
+}<br>
+<br>void delete(){<br>
+&emsp;if(front == NULL)<br>
+&emsp;printf("\nQueue is Empty!!!\n");<br>
+&emsp;else{<br>
+&emsp;&emsp;struct Node *temp = front;<br>
+&emsp;&emsp;front = front -> next;<br>
+&emsp;&emsp;printf("\nDeleted element: %d\n", temp->data);<br>
+&emsp;&emsp;free(temp);<br>
+&emsp;}<br>
+}<br>
+<br>void display(){<br>
+&emsp;if(front == NULL)<br>
+&emsp;printf("\nQueue is Empty!!!\n");<br>
+&emsp;else{<br>
+&emsp;&emsp;struct Node *temp = front;<br>
+&emsp;&emsp;while(temp->next != NULL){<br>
+&emsp;&emsp;&emsp;printf("%d--->",temp->data);<br>
+&emsp;&emsp;&emsp;temp = temp -> next;<br>
+&emsp;&emsp;}<br>
+&emsp;&emsp;printf("%d--->NULL\n",temp->data);<br>
+&emsp;}<br>
+}<br>
+
+
+<br>int main(){<br>
+&emsp;int choice, value;<br>
+&emsp;while(1){<br>
+&emsp;&emsp;printf("1.Insert 2.Delete 3.Display 4.Exit\n");<br>
+&emsp;&emsp;printf("Enter your choice: ");<br>
+&emsp;&emsp;scanf("%d",&amp;choice);<br>
+&emsp;&emsp;switch(choice){<br>
+&emsp;&emsp;&emsp;case 1: printf("Enter the value to be insert: ");<br>
+&emsp;&emsp;&emsp;&emsp;scanf("%d", &amp;value);<br>
+&emsp;&emsp;&emsp;&emsp;insert(value);<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 2: delete(); break;<br>
+&emsp;&emsp;&emsp;case 3: display(); break;<br>
+&emsp;&emsp;&emsp;case 4: exit(0);<br>
+&emsp;&emsp;&emsp;default: printf("\nWrong choice!\n");<br>
+&emsp;&emsp;}<br>
+ &emsp;}<br>
+&emsp;return 0;<br>
+}<br></strong></p>
+</body>
+</html>

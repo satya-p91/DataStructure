@@ -1,0 +1,98 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet">
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Queue using Array</center></h2>
+
+<p class="meme">
+
+#include&#8826;stdio.h&#8827;<br>
+#include&#8826;process.h&#8827;<br>
+#define MAX 50<br>
+
+int queue_array[MAX];<br>
+
+int rear = - 1;<br>
+
+int front = - 1;<br>
+<br>int insert(){<br>
+&emsp;int add_item;<br>
+&emsp;if (rear == MAX - 1)<br>
+&emsp;&emsp;printf("Queue Overflow \n");<br>
+&emsp;else{<br>
+&emsp;&emsp;if (front == - 1)<br>
+&emsp;&emsp;&emsp;front = 0;<br>
+&emsp;&emsp; printf("Inset the element in queue : ");<br>
+&emsp;&emsp;scanf("%d", &amp;add_item);<br>
+&emsp;&emsp;rear = rear + 1;<br>
+&emsp;&emsp;queue_array[rear] = add_item;<br>
+&emsp;}<br>
+&emsp;return 0;<br>
+}<br>
+
+<br>int delete(){<br>
+&emsp;if (front == - 1 || front > rear){<br>
+&emsp;&emsp;printf("Queue Underflow \n");<br>
+&emsp;&emsp;return 0;<br>
+&emsp;}<br>
+&emsp;else{<br>
+&emsp;&emsp;printf("%d is deleted\n", queue_array[front]);<br>
+&emsp;&emsp;front = front + 1;<br>
+&emsp;}<br>
+&emsp;return 0;<br>
+}<br>
+<br>int display(){<br>
+&emsp;int i;<br>
+&emsp;if (front == - 1)<br>
+&emsp;&emsp;printf("Queue is empty \n");<br>
+&emsp;else{<br>
+&emsp;&emsp;printf("Queue is : \n");<br>
+&emsp;&emsp;for (i = front; i <= rear; i++)<br>
+&emsp;&emsp;&emsp;printf("%d ", queue_array[i]);<br>
+&emsp;&emsp;printf("\n");<br>
+&emsp;}<br>
+&emsp;return 0;<br>
+}<br>
+
+<br>int main(){<br>
+&emsp;int choice;<br>
+&emsp; while (1){<br>
+&emsp;&emsp;printf("1.Insert 2.delete 3.display 4.exit\n");<br>
+&emsp;&emsp;printf("Enter your choice : ");<br>
+&emsp;&emsp;scanf("%d", &amp;choice);<br>
+&emsp;&emsp;switch (choice){<br>
+&emsp;&emsp;&emsp;case 1: insert();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 2: delete();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 3: display();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp; case 4: exit(1);<br>
+&emsp;&emsp;&emsp;default:<br>
+&emsp;&emsp;&emsp;&emsp; printf("Wrong choice \n");<br>
+&emsp;&emsp;}<br>
+&emsp;}<br>
+&emsp;return 0;<br>
+}<br></strong></p>
+</body>
+</html>

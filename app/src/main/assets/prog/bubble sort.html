@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+	background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+	background-color: #d3d3d3;
+	width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Bubble Sort</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+
+int main()<br>
+{<br>
+  int array[100], n, c, d, swap;<br>
+
+  printf("Enter number of elements: ");<br>
+  scanf("%d", &amp;n);<br>
+
+  printf("Enter %d integers: ", n);<br>
+
+  for (c = 0; c < n; c++)<br>
+    &nbsp;&nbsp;scanf("%d", &amp;array[c]);<br>
+
+  for (c = 0 ; c < ( n - 1 ); c++){<br>
+    &nbsp;&nbsp;for (d = 0 ; d < n - c - 1; d++){<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if (array[d] > array[d+1]){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap = array[d];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[d]= array[d+1];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array[d+1] = swap;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;}<br>
+  }<br>
+
+  printf("\nSorted list in ascending order:\n");&nbsp;&nbsp;
+
+  for ( c = 0 ; c < n ; c++ )<br>
+     &nbsp;&nbsp;printf("%d   ", array[c]);<br>
+
+   return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>
+

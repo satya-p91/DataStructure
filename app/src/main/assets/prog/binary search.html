@@ -1,0 +1,69 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+	background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+	background-color: #d3d3d3;
+	width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Binary Search</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+ 
+int main()<br>
+{<br>
+   int c, first, last, middle, n, search,array[100];<br>
+ 
+   printf("Enter number of elements\n");<br>
+   scanf("%d",&amp;n);<br>
+ 
+   printf("Enter %d integers\n", n);<br>
+ 
+   for (c = 0; c < n; c++)<br>
+    &nbsp;&nbsp;scanf("%d",&amp;array[c]);<br>
+   <br>
+   printf("Enter value to find\n");<br>
+   scanf("%d", &amp;search);<br>
+ <br>
+   first = 0;<br>
+   last = n - 1;<br>
+   middle = (first+last)/2;<br>
+ <br>
+   while (first <= last) {<br>
+    &nbsp;&nbsp;if (array[middle] < search)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; first = middle + 1;    <br>
+    &nbsp;&nbsp; else if (array[middle] == search) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; printf("%d found at location %d.\n", search, middle+1);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; break;<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;else<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;last = middle - 1;<br>
+    &nbsp;&nbsp;middle = (first + last)/2;<br>
+   }<br>
+   if (first > last)<br>
+    &nbsp;&nbsp;  printf("Not found! %d is not present in the list.\n", search);<br>
+ <br>
+   return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>

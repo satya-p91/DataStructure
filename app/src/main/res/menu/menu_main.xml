@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.satyaprakash.myapplication.MainActivity">
+    <item
+        android:id="@+id/aboutUs"
+        android:title="@string/about_us" />
+    <item android:title="@string/share"
+        android:id="@+id/share"/>
+    <item android:title="@string/rate"
+        android:id="@+id/rate"/>
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"/>
+   <!-- <item android:title="Search"
+        android:id="@+id/search_set"
+        android:icon="@drawable/ic_action_search"
+        app:showAsAction="ifRoom"/> -->
+
+
+
+</menu>

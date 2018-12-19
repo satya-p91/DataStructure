@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Stack using Linked List</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+
+struct Node{<br>
+&emsp;int data;<br>
+&emsp;struct Node *next;<br>
+}*top = NULL;<br>
+<br>
+void push(int value){<br>
+&emsp;struct Node *newNode;<br>
+&emsp;newNode = (struct Node*)malloc(sizeof(struct Node));<br>
+&emsp;newNode->data = value;<br>
+&emsp;if(top == NULL)<br>
+&emsp;&emsp;newNode->next = NULL;<br>
+&emsp;else<br>
+&emsp;&emsp;newNode->next = top;<br>
+&emsp;top = newNode;<br>
+}<br>
+void pop(){<br>
+&emsp;if(top == NULL)<br>
+&emsp;&emsp;printf("\nStack is Empty!!!\n");<br>
+&emsp;else{<br>
+&emsp;&emsp;struct Node *temp = top;<br>
+&emsp;&emsp;printf("Deleted element: %d", temp->data);<br>
+&emsp;&emsp;top = temp->next;<br>
+&emsp;&emsp;free(temp);<br>
+&emsp;}<br>
+}<br>
+void display(){<br>
+&emsp;if(top == NULL)<br>
+&emsp;&emsp;printf("\nStack is Empty!!!\n");<br>
+&emsp;else{<br>
+&emsp;&emsp;struct Node *temp = top;<br>
+&emsp;&emsp;while(temp->next != NULL){<br>
+&emsp;&emsp;&emsp; printf("%d--->",temp->data);<br>
+&emsp;&emsp;&emsp;temp = temp -> next;<br>
+&emsp;&emsp;}<br>
+&emsp;&emsp;printf("%d--->NULL\n",temp->data);<br>
+&emsp;}<br>
+}<br>
+
+int main(){<br>
+&emsp;int choice, value;<br>
+&emsp;while(1){<br>
+&emsp;&emsp;printf("1.Push  2.Pop  3.Display  4.Exit\n");<br>
+&emsp;&emsp;printf("Enter your choice: ");<br>
+&emsp;&emsp;scanf("%d",&amp;choice);<br>
+&emsp;&emsp;switch(choice){<br>
+&emsp;&emsp;&emsp;case 1: printf("Enter the value to be insert: ");<br>
+&emsp;&emsp;&emsp;scanf("%d", &amp;value);<br>
+&emsp;&emsp;&emsp;push(value);<br>
+&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 2: pop(); break;<br>
+&emsp;&emsp;&emsp;case 3: display(); break;<br>
+&emsp;&emsp;&emsp;case 4: exit(0);<br>
+&emsp;&emsp;&emsp;default: printf("\nWrong selection! try again!\n");<br>
+&emsp;&emsp;}<br>
+&emsp;}<br>
+   &emsp;return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>
+

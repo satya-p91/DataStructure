@@ -1,0 +1,131 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet">
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Proiority Queue using Array</center></h2>
+
+<p class="meme">
+
+#include&#8826;stdio.h&#8827;<br>
+#include&#8826;process.h&#8827;<br>
+
+#define MAX 10<br>
+int pri_que[MAX];<br>
+int front = -1, rear = -1;<br>
+
+<br>int insert_by_priority(int data){<br>
+ &emsp;if (rear >= MAX - 1){<br>
+&emsp;&emsp;printf("\nQueue overflow");<br>
+&emsp;&emsp;return 0;<br>
+&emsp;}<br>
+&emsp;if ((front == -1) &amp;&amp; (rear == -1)){<br>
+&emsp;&emsp;front++;<br>
+&emsp;&emsp;rear++;<br>
+&emsp;&emsp;pri_que[rear] = data;<br>
+&emsp;&emsp;return 0;<br>
+&emsp;}<br>
+&emsp;else<br>
+&emsp;&emsp;check(data);<br>
+&emsp;rear++;<br>
+&emsp;return 0;<br>
+}<br>
+<br>int check(int data){<br>
+/*set priority based on higher value have more priority*/<br>
+&emsp;int i,j;<br>
+&emsp;for (i = 0; i <= rear; i++){<br>
+&emsp;&emsp;if (data >= pri_que[i]){<br>
+&emsp;&emsp;&emsp;for (j = rear + 1; j > i; j--){<br>
+&emsp;&emsp;&emsp;&emsp;pri_que[j] = pri_que[j - 1];<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;&emsp;pri_que[i] = data;<br>
+&emsp;&emsp;&emsp;return 0;<br>
+&emsp;&emsp;}<br>
+&emsp;}<br>
+&emsp;pri_que[i] = data;<br>
+&emsp;return 0;<br>
+}<br>
+<br>int delete_by_priority(int data){<br>
+&emsp;int i;<br>
+&emsp;if ((front==-1) &amp;&amp; (rear==-1)){<br>
+&emsp;&emsp;printf("\nQueue is empty");<br>
+&emsp;&emsp;return 0;<br>
+&emsp;}<br>
+&emsp;for (i = 0; i <= rear; i++){<br>
+&emsp;&emsp;if (data == pri_que[i]){<br>
+ &emsp;&emsp;&emsp;for (; i < rear; i++){<br>
+&emsp;&emsp;&emsp;&emsp;pri_que[i] = pri_que[i + 1];<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;&emsp;pri_que[i] = -99;<br>
+&emsp;&emsp;&emsp;rear--;<br>
+&emsp;&emsp;&emsp;if (rear == -1)<br>
+&emsp;&emsp;&emsp;&emsp;front = -1;<br>
+&emsp;&emsp;&emsp;return 0;<br>
+&emsp;&emsp;}<br>
+&emsp;}<br>
+&emsp;printf("\n%d not found in queue to delete", data);<br>
+&emsp;return 0;<br>
+}<br>
+<br>int display(){<br>
+&emsp;if ((front == -1) &amp;&amp; (rear == -1)){<br>
+&emsp;&emsp;printf("\nQueue is empty");<br>
+&emsp;&emsp;return 0;<br>
+&emsp;}<br>
+&emsp;for (; front <= rear; front++){<br>
+&emsp;&emsp;printf(" %d ", pri_que[front]);<br>
+&emsp;}<br>
+&emsp;printf("\n");<br>
+&emsp;front = 0;<br>
+&emsp;return 0;<br>
+}<br>
+
+
+<br>int main(){<br>
+&emsp;int n, ch;<br>
+&emsp;printf("1.Insert 2.Delete 3.Display 4.Exit\n");<br>
+&emsp;while (1){<br>
+&emsp;&emsp;printf("Enter your choice : ");<br>
+&emsp;&emsp;scanf("%d", &amp;ch);<br>
+&emsp;&emsp;switch (ch){<br>
+&emsp;&emsp;&emsp;case 1:<br>
+&emsp;&emsp;&emsp;&emsp;printf("Enter value to be inserted : ");<br>
+&emsp;&emsp;&emsp;&emsp;scanf("%d",&amp;n);<br>
+&emsp;&emsp;&emsp;&emsp;insert_by_priority(n);<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 2:<br>
+&emsp;&emsp;&emsp;&emsp;printf("Enter value to delete : ");<br>
+&emsp;&emsp;&emsp;&emsp;scanf("%d",&amp;n);<br>
+&emsp;&emsp;&emsp;&emsp;delete_by_priority(n);<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 3:<br>
+&emsp;&emsp;&emsp;&emsp; display();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 4:<br>
+&emsp;&emsp;&emsp;&emsp;exit(0);<br>
+&emsp;&emsp;&emsp;default:<br>
+&emsp;&emsp;&emsp;&emsp;printf("\nWrong choice!");<br>
+&emsp;&emsp;}<br>
+&emsp;}<br>
+&emsp;return 0;<br>
+}<br></strong></p>
+</body>
+</html>

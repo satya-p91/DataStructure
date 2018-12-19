@@ -1,0 +1,75 @@
+
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 4px;
+    margin-bottom: 10px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+  
+
+}
+.ma{
+  background-color: white;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+</style>
+</head>
+
+<body class="ss">
+  <p class="meme"> <b>Seletion Sort</b> &minus; Selection sort is a simple sorting algorithm. This sorting algorithm is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end. Initially, the sorted part is empty and the unsorted part is the entire list.<br>&emsp;&emsp;&emsp;This algorithm is not suitable for large data sets as its average and worst case complexities are of O(n&#94;2), where n is the number of items.</p>
+
+
+ <div class="meme">
+  <p><b>How Selection Sort works?</b><br>Suppose an array A with N elements is in memory. Selection sort works as follows</p>
+  <p>First find the smallest element in the array and put it in the first position. Then, find the seceond smallest element in the array and put it in the second position and so on.</p>
+  <img src="selection_sort.jpg" alt="Selection Sort" width="100%" height="210">
+</div>
+
+
+<div class="meme"> 
+  <h3>Algorithm</h3>
+  <p>First we write algorithm to find location LOC of smallest element</p> 
+  <p>MIN(A,K,N,LOC)<br>This procedure will find the location LOC of the element among A[K],A[K+1],...A[N].</p>
+  <ol>
+    <li>Set MIN = A[K] &amp; LOC = K;</li>
+    <li>Repeat for J=k+1,k+2,...,N;<br>&emsp;If MIN &#8827; A[J], then set MIN = A[j] &amp; LOC = J;</li>
+    <li>Return.</li>
+  </ol>
+   <p>Algorithm of selection  sort using MIN function.</p>
+   <p>SELECTION_SORT(A,N)<br>This algorithm sort the array A with N element.</p>
+   <ol>
+     <li>Repeat the steps 2 and 3 for K=1,2,...N-1;</li>
+     <li>call MIN(A,K,N,LOC);</li>
+     <li>(Interchange A[K] and A[LOC])<br>&emsp;Set TEMP = A[K], A[k] = A[LOC] and A[LOC] = TEMP;</li>
+     <li>Exit.</li>
+   </ol>
+</div>
+
+
+
+<div class="meme">
+  <h3>Algorithm Analysis</h3>
+  <h4>Worst case analysis</h4>
+  <p>O(n^2)</p>
+  <h4>Average Case Analysis</h4>
+  <p>O(n^2)</p>
+</div>
+</body>
+</html>

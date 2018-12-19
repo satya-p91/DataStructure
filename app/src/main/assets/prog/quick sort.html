@@ -1,0 +1,79 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+	background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+	background-color: #d3d3d3;
+	width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Quick Sort</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+
+void swap(int* a, int* b){<br>
+   &emsp; int t = *a;<br>
+    &emsp;*a = *b;<br>
+    &emsp;*b = t;<br>
+}<br>
+int partition (int arr[], int low, int high){<br>
+    &emsp;int pivot = arr[high];<br>
+    &emsp;int i = (low - 1);<br>
+    &emsp;int j;<br>
+
+    &emsp;for (j = low; j <= high- 1; j++){<br>
+    &emsp;&emsp;if (arr[j] <= pivot){<br>
+    &emsp;&emsp;&emsp;i++;<br>
+    &emsp;&emsp;&emsp;swap(&amp;arr[i], &amp;arr[j]);<br>
+    &emsp;&emsp;}<br>
+    &emsp;}<br>
+    &emsp;swap(&amp;arr[i + 1], &amp;arr[high]);<br>
+    &emsp;return (i + 1);<br>
+}<br>
+
+void quickSort(int arr[], int low, int high){<br>
+ &emsp;  if (low < high){<br>
+ &emsp; &emsp; int pi = partition(arr, low, high);<br>
+ &emsp;&emsp; quickSort(arr, low, pi - 1);<br>
+&emsp;&emsp; quickSort(arr, pi + 1, high);<br>
+  &emsp;}<br>
+}<br>
+
+void printArray(int arr[], int size){<br>
+   &emsp; int i;<br>
+   &emsp; for (i=0; i < size; i++)<br>
+    &emsp;&emsp;printf("%d ", arr[i]);<br>
+}<br>
+int main(){<br>
+   &emsp; int arr[] = {27, 17, 82, 9, 51, 5};<br>
+
+  &emsp;int n = sizeof(arr)/sizeof(arr[0]);<br>
+  &emsp;printf("array is :");<br>
+  &emsp;printArray(arr, n);<br>
+  &emsp;quickSort(arr, 0, n-1);<br>
+  &emsp;printf("\nSorted array: ");<br>
+  &emsp;printArray(arr, n);<br>
+   &emsp;return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>
+

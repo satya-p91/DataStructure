@@ -1,0 +1,71 @@
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+	background-color: white ;
+    color: black;
+    padding: 4px;
+    margin-bottom: 10px;
+}
+.ss{
+	background-color: #d3d3d3;
+	width: 98%;
+  
+
+}
+.ma{
+  background-color: white;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+</style>
+</head>
+
+<body class="ss">
+  <p class="meme"> <b>Linear search</b> or sequential search is a method for finding a target value within a list. It sequentially checks each element of the list for the target value until a match is found or until all the elements have been searched.</p>
+ <div class="meme">
+<img src="linear_search.gif" alt="linear search img" width="100%" height="80">
+</div>
+<div class="meme"> 
+  <h3>Algorithm</h3>
+  <p>Linear Search ( Array A, Value x)<br><br>
+
+Step 1: Set i to 1<br>
+Step 2: if i > n then go to step 7<br>
+Step 3: if A[i] = x then go to step 6<br>
+Step 4: Set i to i + 1<br>
+Step 5: Go to Step 2<br>
+Step 6: Print Element x Found at index i and go to step 8<br>
+Step 7: Print element not found<br>
+Step 8: Exit</p>
+  
+</div>
+
+
+
+<div class="meme">
+  <h3>Algorithm Analysis</h3>
+  <h4>Worst case analysis</h4>
+  <p>In the worst case analysis, we calculate upper bound on running time of an algorithm. We must know the case that causes maximum number of operations to be executed. For Linear Search, the worst case happens when the element to be searched is not present in the array. When ITEM is not present, the search() functions compares it with all the elements of ARR[] one by one. Therefore, the worst case time complexity of linear search would be &#920;(n).</p>
+
+  <h4>Average Case Analysis</h4>
+  <p>In average case analysis, we take all possible inputs and calculate computing time for all of the inputs. Sum all the calculated values and divide the sum by total number of inputs. We must know (or predict) distribution of cases. For the linear search problem, let us assume that all cases are uniformly distributed (including the case of ITEM not being present in array). So we sum all the cases and divide the sum by (n+1).Therefore, the average case time of linear search is &#920;(n)</p>
+
+  <h4>Best Case Analysis(Bogus) </h4>
+  <p>In the best case analysis, we calculate lower bound on running time of an algorithm. We must know the case that causes minimum number of operations to be executed. In the linear search problem, the best case occurs when x is present at the first location. The number of operations in the best case is constant (not dependent on n). So time complexity in the best case would be &#920;(1)</p>
+</div>
+
+  
+
+</body>
+</html>

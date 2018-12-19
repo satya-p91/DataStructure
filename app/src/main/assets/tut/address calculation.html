@@ -1,0 +1,205 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 4px;
+    margin-bottom: 10px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+  
+}
+.ma{
+  background-color: white;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+</style>
+</head>
+
+<body class="ss">
+  
+<p class="meme"><b>Address Calculation in 1&minus;D array</b>&minus; Address of an element of an array say <b>A[ I ]</b> is calculated using the following formula:<br><br>
+
+<b>Address of A [ I ] = B + W * ( I &minus; LB )</b><br>
+
+Where,<br>
+<b>B</b> = Base address(actual address of <b>first element</b> in memory).<br>
+<b>W</b> = Storage Size of one element stored in the array (in byte i.e. integer take 4 byte).<br>
+<b>I</b> = Index of element in array whose address is to be found.<br>
+<b>LB</b> = Lower limit or say Lower Bound of index, if not specified assume 0 (zero).</p>
+
+  <p class="meme"><b>Example:</b><br><br>
+
+Given the base address of an array B[13...19] as 1020 and size of each element is 2 bytes in the memory. Find the address of B[17].<br>
+
+<b>Solution:</b><br>
+
+The given values are: B = 1020, LB = 13, W = 2, I = 17<br>
+
+Address(A [ I ]) = B + W * ( I &minus; LB )<br>
+
+= 1020 + 2 * (17 – 13)<br>
+= 1020 + 2 * 4<br>
+= 1020 + 8<br>
+= 1028 [Ans]</p>
+
+<p class="meme"><b>Address calculation in 2&minus;D array</b>&minus;While storing the elements of a 2&minus;D array in memory, these are allocated contiguous memory locations. Therefore, a 2&minus;D array must be linearized so as to enable their storage. There are two alternatives to achieve linearization: <b>Row&minus;Major</b> and <b>Column&minus;Major</b>.<br><br>i.e.<br>
+  <table border="1" align="center">
+      <tr align="center">
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr align="center">
+        <td>0</td>
+        <td bgcolor="#d3d3d3">9</td>
+        <td bgcolor="#d3d3d3">8</td>
+        <td bgcolor="#d3d3d3">7</td>
+        <td bgcolor="#d3d3d3">11</td>
+      </tr>
+      <tr align="center">
+        <td>1</td>
+        <td bgcolor="#d3d3d3">6</td>
+        <td bgcolor="#d3d3d3">5</td>
+        <td bgcolor="#d3d3d3">4</td>
+        <td bgcolor="#d3d3d3">12</td>
+      </tr>
+      <tr align="center">
+        <td>2</td>
+        <td bgcolor="#d3d3d3">10</td>
+        <td bgcolor="#d3d3d3">21</td>
+        <td bgcolor="#d3d3d3">17</td>
+        <td bgcolor="#d3d3d3">14</td>
+      </tr>
+  </table><br>
+  it's 2&minus;D array with 0,1&amp;2 as row indexs and 0,1,2&amp;3 column indexs.<br>
+  <b>Row major(Row wise arrangement)</b><br>
+  <table border="1" align="center">
+    <tr align="center">
+      <td bgcolor="#d3d3d3">9</td>
+      <td bgcolor="#d3d3d3">8</td>
+      <td bgcolor="#d3d3d3">7</td>
+      <td bgcolor="#d3d3d3">11</td>
+      <td>6</td>
+      <td>5</td>
+      <td>4</td>
+      <td>12</td>
+      <td bgcolor="#d3d3d3">10</td>
+      <td bgcolor="#d3d3d3">21</td>
+      <td bgcolor="#d3d3d3">17</td>
+      <td bgcolor="#d3d3d3">14</td>
+    </tr>
+    <tr align="center">
+      <td colspan="4" bgcolor="#d3d3d3">Row 0</td>
+      <td colspan="4" >Row 1</td>
+      <td colspan="4" bgcolor="#d3d3d3">Row 2</td>
+    </tr>
+  </table><br><br>
+  <b>Column major(Column wise arrangement)</b><br>
+  <table border="1" align="center">
+    <tr align="center">
+      <td bgcolor="#d3d3d3">9</td>
+      <td bgcolor="#d3d3d3">6</td>
+      <td bgcolor="#d3d3d3">10</td>
+      <td>8</td>
+      <td>5</td>
+      <td>21</td>
+      <td bgcolor="#d3d3d3">7</td>
+      <td bgcolor="#d3d3d3">4</td>
+      <td bgcolor="#d3d3d3">17</td>
+      <td>11</td>
+      <td>12</td>
+      <td>14</td>
+    </tr>
+    <tr align="center">
+      <td colspan="3" bgcolor="#d3d3d3">Column 0</td>
+      <td colspan="3">Column 1</td>
+      <td colspan="3" bgcolor="#d3d3d3">Column 2</td>
+      <td colspan="3">Column 3</td>
+    </tr>
+  </table><br><br>
+  Address of an element of any array say <b>A[ I ][ J ]</b> is calculated in two forms as given:<br>
+(1)By Row Major<br>(2)By Column Major<br><br>
+
+<b>By Row Major:</b><br>
+
+The address of a location by Row Major is calculated using the following formula:<br>
+
+<b>Address(A [ I ][ J ]) = B + W * [ N * ( I &minus; Lr ) + ( J &minus; Lc ) ]</b><br><br>
+
+<b>By Column Major:</b><br>
+
+The address of a location by Column Major is calculated using the following formula:<br>
+
+<b>Address(A [ I ][ J ])= B + W * [( I &minus; Lr ) + M * ( J &minus; Lc )]</b><br><br>
+
+Where,<br>
+<b>B</b> = Base address.<br>
+<b>I</b> = Row index of element whose address is to be found<br>
+<b>J</b> = Column index of element whose address is to be found<br>
+<b>W</b> = Storage Size of one element stored in the array (in byte)<br>
+<b>Lr</b> = Lower limit of row or say start row index of matrix, if not given assume 0 (zero)<br>
+<b>Lc</b> = Lower limit of column or say start column index of matrix, if not given assume 0 (zero)<br>
+<b>M</b> = Number of row of the given matrix<br>
+<b>N</b> = Number of column of the given matrix<br><br>
+
+<b>Note:</b> Usually number of rows and columns of a matrix are given ( like A[2][3] or A[4][6] ) but if it is given as A[Lr...Ur, Lc...Uc]. In this case number of rows and columns are calculated using the following methods:<br><br>
+
+Number of rows (M) will be calculated as = (Ur &minus; Lr) + 1<br>
+Number of columns (N) will be calculated as = (Uc &minus; Lc) + 1<br><br>
+here,<br>
+<b>Ur</b> = Upper bound of row of matrix.<br>
+<b>Uc</b> = Upper bound of column of matrix.<br>
+<b>Lr</b> = Lower bound of row of matrix.<br>
+<b>Lc</b> = Lower bound of row of matrix.<br>
+</p>
+
+<p class="meme">
+  <b>Example:</b><br><br>
+
+An array X [&minus;15...10, 15...40] requires one byte of storage. If beginning location is 1500 determine the location of X [15][20].<br>
+
+<b>Solution:</b><br>
+
+As you see here the number of rows and columns are not given in the question. So they are calculated as:<br>
+
+Number or rows say M = (Ur &minus; Lr) + 1 = [10 &minus; (&minus; 15)] +1 = 26<br>
+Number or columns say N = (Uc &minus; Lc) + 1 = [40 &minus; 15)] +1 = 26<br><br>
+
+<b>(1)By Column Major</b> <br>
+
+The given values are: B = 1500, W = 1 byte, I = 15, J = 20, Lr = -15, Lc = 15, M = 26<br>
+
+Address(X [ I ][ J ]) = B + W * [ ( I &minus; Lr ) + M * ( J &minus; Lc ) ]<br>
+
+= 1500 + 1 * [(15 &minus; (&minus;15)) + 26 * (20 &minus; 15)] <br>
+= 1660 <br><br>
+
+<b>(2) By Row Major</b><br>
+
+The given values are: B = 1500, W = 1 byte, I = 15, J = 20, Lr = -15, Lc = 15, N = 26<br>
+
+Address( X[ I ][ J ] = B + W * [ N * ( I &minus; Lr ) + ( J &minus; Lc ) ]<br>
+
+= 1500 + 1* [26 * (15 – (-15))) + (20 – 15)] <br>
+= 2285<br>
+</p>
+  
+
+</body>
+</html>

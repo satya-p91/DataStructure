@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+	background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+	background-color: #d3d3d3;
+	width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Stack using Arary</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+   
+int stk[100], top=-1, n;<br>
+<br>
+void show(){<br>
+    &nbsp;&nbsp;int i;<br>
+    &nbsp;&nbsp;for( i=0;i< top;i++){<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;printf("%d->",stk[i]);<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp; printf("null\n");<br>
+ }<br>
+<br>
+int push(){<br>
+    &nbsp;&nbsp; int item;<br>
+    &nbsp;&nbsp;if(top == n){<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;printf("\nStack is full.\n");<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;if(top==-1){<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;top = 0;<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;printf("Enter the item : ");<br>
+    &nbsp;&nbsp;scanf("%d",&amp;item);<br>
+    &nbsp;&nbsp;stk[top]=item;<br>
+    &nbsp;&nbsp;top++;<br>
+    &nbsp;&nbsp;return 0;<br>
+}<br>
+<br>
+void pop(){<br>
+    &nbsp;&nbsp;if(top==-1)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;printf("Stack is empty.");<br>
+    &nbsp;&nbsp;else{<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;printf("% d is popped.\n",stk[top-1]);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;top--;<br>
+    &nbsp;&nbsp;}<br>
+}<br>
+
+int main(){<br>
+    &nbsp;&nbsp;int i,op;<br>
+    &nbsp;&nbsp;printf("Enter the size of the stack : ");<br>
+    &nbsp;&nbsp;scanf("%d",&amp;n);<br>
+    &nbsp;&nbsp;do{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;printf("1: Push");<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;printf("  2: Pop");<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;printf("  3 : Print");<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;printf("  4 : Exit");<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;printf("\nEnter your choice : ");<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;scanf("%d",&amp;op);<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;switch(op){<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 1: push();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 2: pop();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 3: show();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;}while(op!=4);<br>
+
+   return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>

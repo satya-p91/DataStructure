@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet">
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Circular Queue using Array</center></h2>
+
+<p class="meme">
+
+#include&#8826;stdio.h&#8827;<br>
+#include&#8826;process.h&#8827;<br>
+
+#define size 10<br>
+int front =  - 1;<br>
+int rear =  - 1;<br>
+
+<br>void insert(int queue[], int item){<br>
+&emsp;if ((front == 0 &amp;&amp; rear == size - 1) || (front == rear + 1)){<br>
+&emsp;&emsp;printf("queue is full");<br>
+&emsp;return;<br>
+&emsp;}<br>
+&emsp;else if (rear ==  - 1){<br>
+&emsp;&emsp;rear++;<br>
+&emsp;&emsp;front++;<br>
+&emsp;}<br>
+&emsp;else if (rear == size - 1 &amp;&amp; front > 0){<br>
+&emsp;&emsp;rear = 0;<br>
+&emsp;}<br>
+&emsp;else{<br>
+&emsp;&emsp;rear++;<br>
+ &emsp;}<br>
+&emsp;queue[rear] = item;<br>
+}<br>
+
+<br>void display(int queue[]){<br>
+&emsp;int i;<br>
+&emsp;if (front > rear){<br>
+&emsp;&emsp;for (i = front; i < size; i++){<br>
+&emsp;&emsp;&emsp;printf("%d ", queue[i]);<br>
+&emsp;&emsp;}<br>
+&emsp;&emsp;for (i = 0; i <= rear; i++)<br>
+&emsp;&emsp;&emsp;printf("%d ", queue[i]);<br>
+&emsp;}<br>
+&emsp;else{<br>
+&emsp;&emsp;for (i = front; i <= rear; i++)<br>
+&emsp;&emsp;&emsp;printf("%d ", queue[i]);<br>
+&emsp;&emsp;printf("\n");<br>
+&emsp;}<br>
+}<br>
+
+<br>void delete(int queue[]){<br>
+&emsp;if (front ==  - 1){<br>
+&emsp;&emsp;printf("Queue is empty ");<br>
+&emsp;}<br>
+&emsp;else if (front == rear){<br>
+&emsp;&emsp;printf("\n %d deleted\n", queue[front]);<br>
+&emsp;&emsp;front =  - 1;<br>
+&emsp;&emsp;rear =  - 1;<br>
+&emsp;}<br>
+&emsp;else{<br>
+&emsp;&emsp;printf("\n %d deleted", queue[front]);<br>
+&emsp;&emsp;front++;<br>
+&emsp;}<br>
+}<br>
+
+
+<br>int main(){<br>
+&emsp; int choice, value;<br>
+&emsp;int queue[size];<br>
+&emsp;while(1){<br>
+&emsp;&emsp;printf("1.Insert 2.Delete 3.Display 4.Exit\n");<br>
+&emsp;&emsp;printf("Enter your choice: ");<br>
+&emsp;&emsp;scanf("%d",&amp;choice);<br>
+&emsp;&emsp;switch(choice){<br>
+&emsp;&emsp;&emsp;case 1: printf("Enter the value to be insert: ");<br>
+&emsp;&emsp;&emsp;&emsp;scanf("%d", &amp;value);<br>
+&emsp;&emsp;&emsp;&emsp;insert(queue , value);<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 2: delete(queue); break;<br>
+&emsp;&emsp;&emsp;case 3: display(queue); break;<br>
+&emsp;&emsp;&emsp;case 4: exit(0);<br>
+&emsp;&emsp;&emsp;default: printf("\nWrong choice!\n");<br>
+&emsp;&emsp;}<br>
+&emsp;}<br>
+&emsp;return 0;<br>
+}<br></strong></p>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+	background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+	background-color: #d3d3d3;
+	width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Linear Search</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+ 
+int main()<br>
+{<br>
+   int array[100], search, c, n;<br>
+ 
+   printf("Enter the number of elements in array\n");<br>
+   scanf("%d",&amp;n);<br>
+ 
+   printf("Enter %d integer(s)\n", n);<br>
+ 
+   for (c = 0; c < n; c++)<br>
+     &nbsp;&nbsp; scanf("%d", &amp;array[c]);<br>
+ 
+   printf("Enter the number to search\n");<br>
+   scanf("%d", &amp;search);<br>
+ 
+   for (c = 0; c < n; c++)<br>
+   {<br>
+   &nbsp;&nbsp;if (array[c] == search){<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;  printf("%d is present at location %d.\n", search, c+1);<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+   &nbsp;&nbsp;}<br>
+   }<br>
+   if (c == n)<br>
+   &nbsp;&nbsp;printf("%d is not present in array.\n", search);<br>
+ 
+   return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>

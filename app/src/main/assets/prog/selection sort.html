@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+	background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+	background-color: #d3d3d3;
+	width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>selection sort</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+ 
+int main()<br>
+{<br>
+  int array[100], n, c, d, position, swap;<br>
+ <br>
+   printf("Enter number of elements\n");<br>
+   scanf("%d", &amp;n);<br>
+<br> 
+   printf("Enter %d integers\n", n);<br>
+ <br>
+   for ( c = 0 ; c < n ; c++ ){<br>
+    &nbsp;&nbsp; scanf("%d", &amp;array[c]);<br>
+ }<br>
+   for ( c = 0 ; c < n - 1 ; c++ ){<br>
+    &nbsp;&nbsp;position = c;<br>
+ <br>
+    &nbsp;&nbsp;for ( d = c + 1 ; d < n ; d++ ){<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if ( array[position] > array[d] )<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position = d;<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;if ( position != c ){<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;swap = array[c];<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;array[c] = array[position];<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; array[position] = swap;<br>
+    &nbsp;&nbsp;}<br>
+   }<br>
+ <br>
+   printf("Sorted list in ascending order:\n");<br>
+ <br>
+   for ( c = 0 ; c < n ; c++ )<br>
+    &nbsp;&nbsp;  printf("%d\n", array[c]);<br>
+ <br>
+ 
+   return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>

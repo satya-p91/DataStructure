@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+	background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+	background-color: #d3d3d3;
+	width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Infix To Prefix Conversion</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+#include &#8826;string.h&#8827;<br>
+#include &#8826;ctype.h&#8827;<br>
+    int top=-1;<br>
+<br>
+push(char elem){<br>
+    &nbsp;&nbsp;s[++top]=elem;<br>
+}<br>
+
+char pop(){<br>
+    &nbsp;&nbsp; return(s[top--]);<br>
+}<br>
+
+int pr(char elem){<br>
+    &nbsp;&nbsp;switch(elem){<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;case '#': return 0;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;case ')': return 1;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;case '+': return 2;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;case '-': return 2;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;case '*': return 3;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;case '/': return 3;<br>
+    &nbsp;&nbsp;}<br>
+}<br>
+
+int main(){<br>                        
+    char infx[50],prfx[50],ch,elem;<br>
+    int i=0,k=0;<br>
+    printf("Enter infix expression: ");<br>
+    scanf("%s",infx);<br>
+    push('#');<br>
+    strrev(infx);<br>
+    while( (ch=infx[i++]) != '\0'){<br>
+    &nbsp;&nbsp;if( ch == ')')
+    &nbsp;&nbsp;&nbsp;&nbsp;push(ch);<br>
+    &nbsp;&nbsp;else &nbsp; if(isalnum(ch))
+    &nbsp;&nbsp;&nbsp;&nbsp;prfx[k++]=ch;<br>
+    &nbsp;&nbsp; else &nbsp;if( ch == '('){<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;while( s[top] != ')')<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prfx[k++]=pop();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;elem=pop(); /* Remove ) */<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;else{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;while( pr(s[top]) >= pr(ch) )<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prfx[k++]=pop();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;push(ch);<br>
+    &nbsp;&nbsp;}<br>
+    }<br>
+    while( s[top] != '#')     /* Pop from stack till empty */<br>
+       &nbsp;&nbsp; prfx[k++]=pop();<br>
+    prfx[k]='\0';          /* Make prefix as valid string */<br>
+    strrev(prfx);<br>
+    printf("\nPrefix Exp : %s",prfx);<br>
+   return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>

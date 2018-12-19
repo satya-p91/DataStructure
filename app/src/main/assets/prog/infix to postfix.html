@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+	background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+	background-color: #d3d3d3;
+	width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Infix to Postfix</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+#include &#8826;ctype.h&#8827;<br>
+#define SIZE 50<br>            
+<br>
+char s[SIZE];<br>
+int top = -1;<br>
+<br>
+push(char elem) {<br>
+ &nbsp;&nbsp;s[++top] = elem;<br>
+}<br>
+
+char pop() {<br>
+ &nbsp;&nbsp;return (s[top--]);<br>
+}<br>
+
+int pr(char elem) {<br>
+ &nbsp;&nbsp;switch (elem) {<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;case '#':  return 0;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;case '(':  return 1;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;case '+':  return 2;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;case '-':  return 2;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;case '*':  return 3;<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;case '/':  return 3;<br>
+ &nbsp;&nbsp;}<br>
+}<br>
+<br>
+
+int main() {<br>
+ char infx[50], pofx[50], ch, elem;<br>
+ int i = 0, k = 0, op1, op2,ele;<br>
+ printf("Enter the Infix Exp: ");<br>
+ scanf("%s", infx);<br>
+ push('#');<br>
+ <br>
+ while ((ch = infx[i++]) != '\0') {<br>
+ &nbsp;&nbsp;if (ch == '(')<br>
+ &nbsp;&nbsp;&nbsp;&nbsp; push(ch);<br>
+ &nbsp;&nbsp;else if (isalnum(ch))<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;pofx[k++] = ch;<br>
+ &nbsp;&nbsp;else if (ch == ')') {<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;while (s[top] != '(')<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pofx[k++] = pop();<br>
+   &nbsp;&nbsp;elem = pop();<br>
+  }<br>
+   else {<br>
+   &nbsp;&nbsp;while (pr(s[top]) >= pr(ch))<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;pofx[k++] = pop();<br>
+   &nbsp;&nbsp;push(ch);<br>
+  }<br>
+ }<br>
+  while (s[top] != '#') <br>
+  &nbsp;&nbsp;pofx[k++] = pop();<br>
+ pofx[k] = '\0'; <br>
+ printf("\nPostfix Exp: %s",pofx);<br>
+
+   return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>

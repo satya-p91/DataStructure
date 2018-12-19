@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+	background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+	background-color: #d3d3d3;
+	width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Insertion Sort</center></h2>
+
+<p class="meme ">
+ /* Insertion sort ascending order */<br>
+#include &#8826;stdio.h&#8827;<br>
+
+int main()<br>
+{<br>
+  int n, a[100], c, d, t;<br>
+ 
+  printf("Enter number of elements\n");<br>
+  scanf("%d", &amp;n);<br>
+ 
+  printf("Enter %d integers\n", n);<br>
+ 
+  for (c = 1; c <= n; c++) {<br>
+    &nbsp;&nbsp; scanf("%d", &amp;a[c]);<br>
+  }<br>
+ <br>
+    a[0] = -1000;
+  for (c = 2 ; c <= n; c++) {<br>
+    &nbsp;&nbsp;d = c-1;<br>
+    &nbsp;&nbsp;t=a[c];<br>
+ <br>
+    &nbsp;&nbsp; while ( t < a[d]) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; a[ d + 1 ] = a[d];<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;d--;<br>
+    &nbsp;&nbsp;}<br>
+    a[d+1]=t;
+  }<br>
+ 
+  printf("Sorted list in ascending order:\n");<br>
+ <br>
+  for (c = 0; c <= n - 1; c++) {<br>
+    &nbsp;&nbsp;  printf("%d\n", array[c]);<br>
+  }<br>
+  <br>
+     return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>

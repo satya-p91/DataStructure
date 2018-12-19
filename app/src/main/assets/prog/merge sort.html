@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: #292828;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+    border: 2px solid gray;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Merge Sort</center></h2>
+
+<p class="meme ">
+
+#include &#8826;stdio.h&#8827;<br>
+ 
+
+<br>
+
+void merge(int *a,int p,int q, int r){<br>
+    &nbsp;&nbsp;int i,j,k,*b;<br>
+    &nbsp;&nbsp;i=p;<br>
+    &nbsp;&nbsp;j=q+1;<br>
+    &nbsp;&nbsp;k=0;<br>
+    &nbsp;&nbsp;b=(int *)malloc(sizeof(int)*(r+1));<br>
+    &nbsp;&nbsp;while(i<=q &amp;&amp; j<=r){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if(a[i]<=a[j]){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b[k++] = a[i++];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}else{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b[k++]=a[j++];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;while(i<=q){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;b[k++] = a[i++];<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;while(j<=r){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;b[k++]=a[j++];<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;k--;<br>
+    &nbsp;&nbsp;while(k>=0){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;a[p+k]=b[k];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;k--;<br>
+    &nbsp;&nbsp;}<br>
+}<br>
+<br>
+void mergeSort(int *a,int p,int r){<br>
+    &nbsp;&nbsp;int q;<br>
+    &nbsp;&nbsp;if(p<r){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;q=(p+r)/2;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;mergeSort(a,p,q);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;mergeSort(a,q+1,r);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;merge(a,p,q,r);<br>
+    &nbsp;&nbsp;}<br>
+}<br>
+<br>
+int main(){<br>
+    &nbsp;&nbsp;int i,n,*a;<br>
+    &nbsp;&nbsp;printf("Enter the no of elements:\n");<br>
+    &nbsp;&nbsp;scanf("%d",&amp;n);<br>
+    &nbsp;&nbsp;a=(int *)malloc(sizeof(int)*n);<br>
+    &nbsp;&nbsp;printf("Enter %d elements: \n",n);<br>
+    &nbsp;&nbsp;for(i=0;i<n;i++){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;scanf("%d",a+i);<br>
+    &nbsp;&nbsp;}<br>
+<br>
+    &nbsp;&nbsp;mergeSort(a,0,n-1);<br>
+<br>
+    &nbsp;&nbsp;printf("\nArray after sorting:\n ");<br>
+    &nbsp;&nbsp;for(i=0;i<n;i++){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;printf("%d  ",a[i]);<br>
+    &nbsp;&nbsp;}<br>
+<br>
+
+   &nbsp;&nbsp;return 0;<br>
+
+}<br></strong>.</p>
+</body>
+</html>

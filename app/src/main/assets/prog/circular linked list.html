@@ -1,0 +1,181 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet">
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Circular Linked List</center></h2>
+
+<p class="meme">
+
+#include&#8826;stdio.h&#8827;<br>
+#include&#8826;stdlib.h&#8827;<br>
+#include&#8826;process.h&#8827;<br>
+
+<br>struct node{<br>
+&emsp;int data;<br>
+&emsp;struct node *link;<br>
+};<br>
+
+struct node *head = NULL, *x, *y, *z;<br>
+
+<br>void create(){<br>
+&emsp;int c;<br>
+&emsp;x = (struct node*)malloc(sizeof(struct node));<br>
+&emsp;printf("Enter the data:");<br>
+&emsp;scanf("%d", &amp;x->data);<br>
+&emsp;x->link = x;<br>
+&emsp;head = x;<br>
+&emsp;printf("To continue press 1 otherwise 0: ");<br>
+&emsp;scanf("%d", &amp;c);
+&emsp;while (c != 0){<br>
+&emsp;&emsp;y = (struct node*)malloc(sizeof(struct node));<br>
+&emsp;&emsp;printf("Enter the data:");<br>
+&emsp;&emsp;scanf("%d", &amp;y->data);<br>
+&emsp;&emsp;x->link = y;<br>
+&emsp;&emsp; y->link = head;<br>
+&emsp;&emsp; x = y;<br>
+&emsp;&emsp; printf("To continue press 1 otherwise 0: ");<br>
+&emsp;&emsp;scanf("%d", &amp;c);<br>
+&emsp;}<br>
+}<br>
+
+<br>void ins_at_beg(){<br>
+&emsp;x = head;<br>
+&emsp;y = (struct node*)malloc(sizeof(struct node));<br>
+&emsp; printf("Enter the data:");<br>
+&emsp;scanf("%d", &amp;y->data);<br>
+&emsp;while (x->link != head){<br>
+&emsp;&emsp;x = x->link;<br>
+&emsp;}<br>
+&emsp;x->link = y;<br>
+&emsp;y->link = head;<br>
+&emsp;head = y;<br>
+}<br>
+
+<br>void ins_at_pos(){<br>
+&emsp;struct node *ptr;<br>
+&emsp;int c = 1, pos, count = 1;<br>
+&emsp;y = (struct node*)malloc(sizeof(struct node));<br>
+&emsp;if (head == NULL){<br>
+&emsp;&emsp;printf("cannot enter an element at this place");<br>
+&emsp;}<br>
+&emsp;printf("\n Enter the data:");<br>
+&emsp;scanf("%d", &amp;y->data);<br>
+&emsp;printf("\n Enter the position to be inserted:");<br>
+&emsp;scanf("%d", &amp;pos);<br>
+&emsp;x = head;<br>
+&emsp;ptr = head;<br>
+&emsp;while (ptr->link != head){<br>
+&emsp;&emsp;count++;<br>
+&emsp;&emsp;ptr = ptr->link;<br>
+&emsp;}<br>
+&emsp;count++;<br>
+&emsp;if (pos > count){<br>
+&emsp;&emsp;printf("OUT OF BOUND");<br>
+&emsp;&emsp;return;<br>
+&emsp;}<br>
+&emsp;while (c < pos){<br>
+&emsp;&emsp;z = x;<br>
+&emsp;&emsp;x = x->link;<br>
+&emsp;&emsp;c++;<br>
+&emsp;}<br>
+&emsp;y->link = x;<br>
+&emsp;z->link = y;<br>
+}<br>
+
+<br>void del_at_beg(){<br>
+ &emsp;if (head == NULL)<br>
+&emsp;&emsp;printf("\n List is empty");<br>
+&emsp;else{<br>
+&emsp;&emsp;x = head;<br>
+&emsp;&emsp;y = head;<br>
+&emsp;&emsp;while (x->link !=  head){<br>
+&emsp;&emsp;&emsp;x = x->link;<br>
+&emsp;&emsp;}<br>
+&emsp;&emsp;head = y->link;<br>
+&emsp;&emsp;x->link = head;<br>
+&emsp;&emsp;printf(" %d deleted" ,y->data);<br>
+&emsp;&emsp;free(y);<br>
+&emsp;}<br>
+}<br>
+
+<br>void del_at_pos(){<br>
+&emsp;if (head == NULL)<br>
+&emsp;&emsp;printf("\n List is empty");<br>
+&emsp;else{<br>
+&emsp;&emsp;int c = 1, pos;<br>
+&emsp;&emsp;printf("\n Enter the position to be deleted:");<br>
+&emsp;&emsp;scanf("%d", &amp;pos);<br>
+&emsp;&emsp;x = head;<br>
+&emsp;&emsp;while (c < pos){<br>
+&emsp;&emsp;&emsp;y = x;<br>
+&emsp;&emsp;&emsp;x = x->link;<br>
+&emsp;&emsp;&emsp;c++;<br>
+&emsp;&emsp;}<br>
+&emsp;&emsp;y->link = x->link;<br>
+&emsp;&emsp;free(x);<br>
+&emsp;}<br>
+}<br>
+
+<br>void display(){<br>
+&emsp;if (head == NULL)<br>
+&emsp;&emsp;printf("\n List is empty");<br>
+&emsp;else{<br>
+&emsp;&emsp;x = head;<br>
+&emsp;&emsp;while (x->link !=  head){<br>
+&emsp;&emsp;&emsp;printf("%d->", x->data);<br>
+&emsp;&emsp;&emsp;x = x->link;<br>
+&emsp;&emsp;}<br>
+&emsp;&emsp;printf("%d->null\n", x->data);<br>
+&emsp;}<br>
+}<br>
+
+<br>int main(){<br>
+&emsp;int ch;<br>
+&emsp;printf("1.Create 2.Insert_beg  3.Insert_pos\n");<br>
+&emsp;printf("4.Delete_beg 5.Delete_pos  6.display");<br>
+&emsp;printf("\n7.exit\n");<br>
+&emsp;while (1){<br>
+&emsp;&emsp;printf("Enter your choice: ");<br>
+&emsp;&emsp;scanf("%d", &amp;ch);<br>
+&emsp;&emsp;switch(ch){<br>
+&emsp;&emsp;&emsp;case 1: create();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 2: ins_at_beg();<br>
+&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 3: ins_at_pos();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 4:  del_at_beg();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 5: del_at_pos();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 6: display();<br>
+&emsp;&emsp;&emsp;&emsp; break;<br>
+&emsp;&emsp;&emsp;case 7: exit(0);<br>
+&emsp;&emsp;&emsp;default :<br>
+&emsp;&emsp;&emsp;&emsp;printf("wrong choice!");<br>
+&emsp;&emsp;}<br>
+&emsp;}<br>
+&emsp;return 0;<br>
+}<br></strong></p>
+</body>
+</html>

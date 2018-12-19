@@ -1,0 +1,106 @@
+<resources>
+    <string name="action_settings">Settings</string>
+    <string name="name">Data Structures</string>
+    <string name="s_name">Avi yha kuch v nhi hai yar.</string>
+    <string name="about_us">About Us</string>
+    <string name="share">Share</string>
+    <string name="rate">Rate Me</string>
+
+    <string-array name="tutoriallist">
+        <item>Data Structure Overview</item>
+        <item>Introduction</item>
+        <item>Single &amp; Multi-Dimensional Arrays</item>
+        <item>Address Calculation</item>
+        <item>Applications of Arrays</item>
+        <item>Operations on Arrays</item>
+        <item>Algorithms</item>
+        <item>Algorithms Analysis</item>
+        <item>Complexity of Algorithms</item>
+        <item>Time space Trade-off</item>
+        <item>Asymptotic Notations</item>
+        <item>Linear Search</item>
+        <item>Binary Search</item>
+        <item>Insertion Sort</item>
+        <item>Selection Sort</item>
+        <item>Merge Sort</item>
+        <item>Quick Sort</item>
+        <item>Heap Sort</item>
+        <item>Concept of Linked List</item>
+        <item>Singly Linked List</item>
+        <item>Doubly Linked List</item>
+        <item>Circular Linked List</item>
+        <item>Operations on Linked List</item>
+        <item>Array Representation of Stack</item>
+        <item>Applications of Stack</item>
+        <item>Infix to Prefix Conversion</item>
+        <item>Infix to Postfix Conversion</item>
+        <item>Evaluation of Postfix exp. using stack</item>
+        <item>Evaluation of prefix exp. using stack</item>
+        <item>Array Representation of Queue</item>
+        <item>Linked Representation of Queue</item>
+        <item>Circular Queue</item>
+        <item>DeQueue</item>
+        <item>Priority Queue</item>
+        <item>Applications of Queue</item>
+        <item>Basic Terminology of Tree</item>
+        <item>Binary Tree</item>
+        <item>Binary Search Tree</item>
+        <item>AVL Tree</item>
+        <item>B-tree</item>
+        <item>Basic Terminology &amp; Representation</item>
+        <item>Graphs &amp; Multi-graphs</item>
+        <item>Directed Graphs</item>
+        <item>Spanning Tree</item>
+        <item>Minimum Cost Spanning Tree</item>
+        <item>Hash Function &amp; Table</item>
+        <item>Collision Resolution Strategies</item>
+        <item>Hash Table Implementation</item>
+        <item>Introduction to File Handling</item>
+        <item>Data &amp; Information</item>
+        <item>Concept &amp; Organization</item>
+        <item>File &amp; Stream</item>
+    </string-array>
+
+    <string-array name="program_list">
+        <item>Linear Search</item>
+        <item>Binary Search</item>
+        <item>Insertion Sort</item>
+        <item>Selection Sort</item>
+        <item>Stack</item>
+        <item>Infix To Postfix</item>
+        <item>Infix To Prefix</item>
+        <item>Stack Using Linked List</item>
+        <item>Singly Linked List</item>
+        <item>Doubly Linked List</item>
+        <item>Circular Linked List</item>
+        <item>Queue using array</item>
+        <item>Queue using Linked List</item>
+        <item>Circular Queue</item>
+        <item>Priority Queue</item>
+        <item>DeQueue</item>
+        <item>Binary Search Tree</item>
+        <item>AVL Tree</item>
+        <item>Merge Sort</item>
+        <item>Quick Sort</item>
+        <item>Heap Sort</item>
+        <item>Hash Function</item>
+        <item>Graphs Representation Using Adjacency List</item>
+        <item>Graphs Representation Using Adjacency Matrix</item>
+        <item>Breadth First Search</item>
+        <item>Depth First Search</item>
+        <item>File Handling</item>
+    </string-array>
+
+
+    <!-- Example General settings -->
+
+    <!-- Example settings for Data & Sync -->
+
+    <!-- Example settings for Notifications -->
+
+    <string name="devloper_name">Designed \u0026 Developed By: \n <b>Satya Prakash \u0026 Afnan Ansari</b></string>
+    <string name="detail_abt_us"><b>#1 App for Data Structure</b> \n No need to carry Data Structure book. This App enables you to learn
+        basics of <b>Data Structure</b> in your phone. It Contains <b>Tutorials</b>, <b>Programs</b> and around 100 <b>Exams Questions</b>.
+    It has the Simplest user interface. Whenever you require any info about data Structure you are just few clicks away.</string>
+    <string name="search">Search</string>
+</resources>

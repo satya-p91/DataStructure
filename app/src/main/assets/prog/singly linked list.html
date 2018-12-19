@@ -1,0 +1,172 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Singly Linked List</center></h2>
+
+<p class="meme">
+
+#include&#8826;stdio.h&#8827;
+#include&#8826;process.h&#8827;<br>
+
+<br>struct node{<br>
+&emsp;int data;<br>
+&emsp;struct node *next;<br>
+}*start=NULL,*q,*t;<br>
+
+<br>void insert_beg(){<br>
+&emsp;int num;<br>
+&emsp;t=(struct node*)malloc(sizeof(struct node));<br>
+&emsp;printf("Enter data:");<br>
+&emsp;scanf("%d",&amp;num);<br>
+&emsp;t->data=num;<br>
+
+&emsp;if(start==NULL){<br>
+&emsp;&emsp;t->next=NULL;<br>
+&emsp;&emsp;start=t;<br>
+&emsp;}<br>
+&emsp;else{<br>
+&emsp;t->next=start;<br>
+&emsp;&emsp;start=t;<br>
+&emsp;}<br>
+}<br>
+
+<br>int insert_pos(){<br>
+&emsp;int pos,i,num;<br>
+&emsp;if(start==NULL){<br>
+&emsp;&emsp;printf("List is empty!!");<br>
+&emsp;&emsp;return 0;<br>
+&emsp;}<br>
+
+&emsp;t=(struct node*)malloc(sizeof(struct node));<br>
+&emsp;printf("Enter data:");<br>
+&emsp;scanf("%d",&amp;num);<br>
+&emsp;printf("Enter position to insert:");<br>
+&emsp;scanf("%d",&amp;pos);<br>
+&emsp;t->data=num;<br>
+
+&emsp;q=start;<br>
+&emsp;for(i=1;i&#8826;pos-1;i++){ <br>
+&emsp;&emsp;if(q->next==NULL){<br>
+&emsp;&emsp;&emsp;printf("There are less elements!!");<br>
+&emsp;&emsp;&emsp;return 0;<br>
+&emsp;&emsp;}<br>
+
+&emsp;&emsp;q=q->next;<br>
+&emsp;}<br>
+
+&emsp;t->next=q->next;<br>
+&emsp;q->next=t;<br>
+&emsp;return 0;<br>
+}<br>
+
+<br>void display(){<br>
+&emsp;if(start==NULL){<br>
+&emsp;&emsp;printf("List is empty!!");<br>
+&emsp;}<br>
+&emsp;else{<br>
+&emsp;&emsp;q=start;<br>
+&emsp;&emsp;printf("The linked list is:\n");<br>
+&emsp;&emsp;while(q!=NULL){<br>
+&emsp;&emsp;&emsp;printf("%d->",q->data);<br>
+&emsp;&emsp;&emsp;q=q->next;<br>
+&emsp;&emsp;}<br>
+&emsp;&emsp;printf("null\n");<br>
+&emsp;}<br>
+}<br>
+
+<br>void delete_beg(){<br>
+&emsp;if(start==NULL){<br>
+&emsp;&emsp;printf("The list is empty!!");<br>
+&emsp;}<br>
+&emsp;else{<br>
+&emsp;&emsp;q=start;<br>
+&emsp;&emsp;start=start->next;<br>
+&emsp;&emsp;printf("Deleted element is %d",q->data);<br>
+&emsp;&emsp;free(q);<br>
+&emsp;}<br>
+}<br>
+
+<br>int delete_pos(){<br>
+&emsp;int pos,i;<br>
+
+&emsp;if(start==NULL){<br>
+&emsp;&emsp;printf("List is empty!!");<br>
+&emsp;&emsp;return 0;<br>
+&emsp;}<br>
+
+&emsp;printf("Enter position to delete:");<br>
+&emsp;scanf("%d",&amp;pos);<br>
+
+&emsp;q=start;<br>
+&emsp;for(i=1;i&#8826;pos-1;i++){<br>
+&emsp;&emsp;if(q->next==NULL){<br>
+&emsp;&emsp;&emsp;printf("There are less elements!!");<br>
+&emsp;&emsp;&emsp;return 0;<br>
+&emsp;&emsp;}<br>
+&emsp;&emsp;q=q->next;<br>
+&emsp;}<br>
+
+&emsp;t=q->next;<br>
+&emsp; q->next=t->next;<br>
+&emsp;printf("Deleted element is %d",t->data);<br>
+&emsp;free(t);<br>
+
+&emsp;return 0;<br>
+}<br>
+
+
+<br>int main(){<br>
+
+&emsp;int ch;<br>
+&emsp;while(1){<br>
+&emsp;&emsp;printf("1.Insert_beg  2.Insert_pos  3.display\n");<br>
+&emsp;&emsp;printf("4.delete_beg  5.delete_pos 6.exit\n");<br>
+       /* here Insert_pos = insert data at given position<br>
+       Insert_beg = insert data at beginning<br>
+       delete_beg = delete from beginning<br>
+       delete_pos = delete from given position*/<br>
+&emsp;&emsp;<br> scanf("%d",&amp;ch);<br>
+
+&emsp;&emsp;switch(ch){<br>
+&emsp;&emsp;&emsp;case 1: insert_beg();<br>
+&emsp;&emsp;&emsp;&emsp; break;<br>
+
+&emsp;&emsp;&emsp;case 2: insert_pos();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+
+&emsp;&emsp;&emsp;case 3: display();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 4: delete_beg();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 5: delete_pos();<br>
+&emsp;&emsp;&emsp;&emsp;break;<br>
+&emsp;&emsp;&emsp;case 6: exit(0);<br>
+&emsp;&emsp;&emsp;default: printf("Wrong Choice!!");<br>
+&emsp;&emsp;}<br>
+&emsp;}<br>
+&emsp;return 0;<br>
+}<br></strong>.</p>
+</body>
+</html>
+

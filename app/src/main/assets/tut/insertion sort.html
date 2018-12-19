@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" >
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 4px;
+    margin-bottom: 10px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+  
+
+}
+.ma{
+  background-color: white;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+</style>
+</head>
+<body class="ss">
+	<p class="meme"> <b>Insertion Sort Sort</b> &minus; This is an in-place comparison-based sorting algorithm. Here, a sub-list is maintained which is always sorted. For example, the lower part of an array is maintained to be sorted. An element which is to be 'insert'ed in this sorted sub-list, has to find its appropriate place and then it has to be inserted there. Hence it is named as insertion sort.</p>
+
+	<div class="meme">
+		<p><b>How Insertion sort works?</b><br>Suppose an array A contains 8 elements that is 77, 33, 44, 11, 88, 22, 66, 55</p>
+		<img src="insertionsort.png" alt="Insertion sort" width="100%" height="200">
+		<p>above given chart illustrates the insertion sort algrothim. The circled element indicates the A[K] in each place of the algorithm, and the arrow indicates the proper place for inserting A[K].</p>
+	</div>
+    <div class="meme"> 
+        <h3>Algorithm</h3>
+        <p>INSERTIONSORT(A,N)<br>This algorithm sorts the array A with N elements.</p>
+        <ol>
+        	<li>Set A[0] = -&infin;</li>
+        	<li>Repeat step 3 to 5 for k = 1,2,..,N</li>
+        	<li>Set TEMP = A[k] and PTR = K-1</li>
+        	<li>Repeat while TEMP  &#8826; A[PTR]<br><ul type="square">
+        		<li>set A[PTR+1]=A[PTR];</li>
+        		<li>set PTR--;</li>
+        	</ul></li>
+        	<li>set A[PTR +1] = TEMP; </li>
+        	<li>Return</li>
+
+        </ol>
+    </div>
+    <div class="meme">
+        <h3>Algorithm Analysis</h3>
+        <h4>Worst case analysis</h4>
+        <p>O(n^2)</p>
+        <h4>Average case analysis</h4>
+        <p>O(n^2)</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet">
+<style>
+.city {
+    background-color: white;
+    color: blue;
+    padding: 5px;
+    }
+.meme{
+  background-color: white ;
+    color: black;
+    padding: 5px;
+}
+.ss{
+  background-color: #d3d3d3;
+  width: 98%;
+
+}
+</style>
+</head>
+
+<body class="ss">
+<h2 class="city"><center>Operations on BST </center></h2>
+
+<p class="meme">
+
+#include&#8826;stdio.h&#8827;<br>
+#include&#8826;process.h&#8827;<br>
+#include&#8826;stdlib.h&#8827;<br>
+
+<br>struct btnode{<br>
+    &emsp;int value;<br>
+    &emsp;struct btnode *l;<br>
+    &emsp;struct btnode *r;<br>
+}*root = NULL, *temp = NULL, *t2, *t1;<br>
+
+<br>int flag = 1;<br>
+
+
+<br>/* To insert a node in the tree */<br>
+void insert(){<br>
+    &emsp;create();<br>
+    &emsp;if (root == NULL)<br>
+        &emsp;&emsp;root = temp;<br>
+    &emsp;else<br>
+        &emsp;&emsp;search(root);<br>
+}<br>
+
+<br>/* To create a node */<br>
+void create(){<br>
+    &emsp;int data;<br>
+
+    &emsp;printf("Enter data to insert: ");<br>
+    &emsp;scanf("%d", &amp;data);<br>
+    &emsp;temp = (struct btnode *)malloc(1*sizeof(struct btnode));<br>
+    &emsp;temp->value = data;<br>
+    &emsp;temp->l = temp->r = NULL;<br>
+}<br>
+
+<br>/* Function to search the appropriate position to insert the new node */<br>
+void search(struct btnode *t){<br>
+       /* value more than root node value insert at right */<br>
+    &emsp;if ((temp->value > t->value) &amp;&amp; (t->r != NULL))<br>   
+        &emsp;&emsp;search(t->r);<br>
+    &emsp;else if ((temp->value > t->value) &amp;&amp; (t->r == NULL))<br>
+        &emsp;&emsp;t->r = temp;<br>
+     /* value less than root node value insert at left */<br>
+    &emsp;else if ((temp->value < t->value) &amp;&amp; (t->l != NULL))<br>   
+        &emsp;&emsp;search(t->l);<br>
+    &emsp;else if ((temp->value < t->value) &amp;&amp; (t->l == NULL))<br>
+        &emsp;&emsp;t->l = temp;<br>
+}<br>
+
+
+<br>/* recursive function to perform inorder traversal of tree */<br>
+void inorder(struct btnode *t){<br>
+    &emsp;if (root == NULL){<br>
+        &emsp;&emsp;printf("No elements in a tree to display");<br>
+        &emsp;&emsp;return;<br>
+    &emsp;}<br>
+    &emsp;if (t->l != NULL)<br>
+        &emsp;&emsp;inorder(t->l);<br>
+    &emsp;&emsp;printf("%d -> ", t->value);<br>
+    &emsp;if (t->r != NULL)<br>
+        &emsp;&emsp;inorder(t->r);<br>
+
+   &emsp; printf("\n");<br>
+}<br>
+
+<br>/* To check for the deleted node */<br>
+void delete(){<br>
+    &emsp;int data;<br>
+
+    &emsp;if (root == NULL){<br>
+        &emsp;&emsp;printf("No elements in a tree to delete");<br>
+        &emsp;&emsp;return;<br>
+   &emsp; }<br>
+    &emsp;printf("Enter the data to be deleted : ");<br>
+    &emsp;scanf("%d", &amp;data);<br>
+    &emsp;t1 = root;<br>
+    &emsp;t2 = root;<br>
+    &emsp;search1(root, data);<br>
+}<br>
+
+<br>/* To find the preorder traversal */<br>
+void preorder(struct btnode *t){<br>
+    &emsp;if (root == NULL){<br>
+        &emsp;&emsp;printf("No elements in a tree to display");<br>
+        &emsp;return;<br>
+    &emsp;}<br>
+    &emsp;printf("%d -> ", t->value);<br>
+    &emsp;if (t->l != NULL)<br>
+        &emsp;&emsp;preorder(t->l);<br>
+    &emsp;if (t->r != NULL)<br>
+        &emsp;&emsp;preorder(t->r);<br>
+}<br>
+
+<br>/* To find the postorder traversal */<br>
+void postorder(struct btnode *t){<br>
+   &emsp; if (root == NULL)<br>{<br>
+        &emsp;&emsp;printf("No elements in a tree to display ");<br>
+        &emsp;&emsp;return;<br>
+   &emsp; }<br>
+    &emsp;if (t->l != NULL)<br>
+        &emsp;&emsp;postorder(t->l);<br>
+    &emsp;if (t->r != NULL)<br>
+        &emsp;&emsp;postorder(t->r);<br>
+    &emsp;printf("%d -> ", t->value);<br>
+}<br>
+
+<br>/* Search for the appropriate position to insert the new node */<br>
+void search1(struct btnode *t, int data){<br>
+   &emsp; if ((data>t->value)){<br>
+       &emsp;&emsp; t1 = t;<br>
+        &emsp;&emsp;search1(t->r, data);<br>
+    &emsp;}<br>
+    &emsp;else if ((data < t->value)){<br>
+        &emsp;&emsp;t1 = t;<br>
+        &emsp;&emsp;search1(t->l, data);<br>
+    &emsp;}<br>
+    &emsp;else if ((data==t->value)){<br>
+        &emsp;&emsp;delete1(t);<br>
+    &emsp;}<br>
+}<br>
+
+
+<br>/* To delete a node */<br>
+void delete1(struct btnode *t){<br>
+  &emsp;  int k;<br>
+
+    <br>/* To delete leaf node */<br>
+    &emsp;if ((t->l == NULL) &amp;&amp; (t->r == NULL)){<br>
+        &emsp;&emsp;if (t1->l == t){<br>
+            &emsp;&emsp;&emsp;t1->l = NULL;<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;else{<br>
+            &emsp;&emsp;&emsp;t1->r = NULL;<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;t = NULL;<br>
+        &emsp;&emsp;free(t);<br>
+        &emsp;&emsp;return;<br>
+    &emsp;}<br>
+
+    <br>/* To delete node having one left hand child */<br>
+    &emsp;else if ((t->r == NULL)){<br>
+        &emsp;&emsp;if (t1 == t){<br>
+            &emsp;&emsp;&emsp;root = t->l;<br>
+            &emsp;&emsp;&emsp;t1 = root;<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;else if (t1->l == t){<br>
+           &emsp;&emsp;&emsp; t1->l = t->l;<br>
+
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;else{<br>
+           &emsp;&emsp;&emsp; t1->r = t->l;<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;t = NULL;<br>
+        &emsp;&emsp;free(t);<br>
+       &emsp;&emsp; return;<br>
+    &emsp;}<br>
+
+    <br>/* To delete node having right hand child */<br>
+    &emsp;else if (t->l == NULL){<br>
+        &emsp;&emsp;if (t1 == t){<br>
+          &emsp;&emsp;&emsp;  root = t->r;<br>
+            &emsp;&emsp;&emsp;t1 = root;<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;else if (t1->r == t)<br>
+            &emsp;&emsp;&emsp;t1->r = t->r;<br>
+        &emsp;&emsp;else<br>
+            &emsp;&emsp;&emsp;t1->l = t->r;<br>
+        &emsp;&emsp;t == NULL;<br>
+        &emsp;&emsp;free(t);<br>
+        &emsp;&emsp;return;<br>
+    &emsp;}<br>
+
+
+   <br> /* To delete node having two child */<br>
+    &emsp;else if ((t->l != NULL) &amp;&amp; (t->r != NULL)){<br>
+        &emsp;&emsp;t2 = root;<br>
+        &emsp;&emsp;if (t->r != NULL){<br>
+           &emsp;&emsp;&emsp; k = smallest(t->r);<br>
+            &emsp;&emsp;&emsp;flag = 1;<br>
+       &emsp;&emsp; }<br>
+        &emsp;&emsp;else{<br>
+           &emsp;&emsp;&emsp; k =largest(t->l);<br>
+            &emsp;&emsp;&emsp;flag = 2;<br>
+        &emsp;&emsp;}<br>
+        &emsp;&emsp;search1(root, k);<br>
+       &emsp;&emsp; t->value = k;<br>
+    &emsp;}<br>
+}<br>
+
+<br>/* To find the smallest element in the right sub tree */<br>
+int smallest(struct btnode *t){<br>
+    &emsp;t2 = t;<br>
+    &emsp;if (t->l != NULL){<br>
+        &emsp;&emsp;t2 = t;<br>
+        &emsp;&emsp;return(smallest(t->l));<br>
+    &emsp;}<br>
+    &emsp;else<br>
+        &emsp;&emsp;return (t->value);<br>
+}<br>
+
+<br>/* To find the largest element in the left sub tree */<br>
+int largest(struct btnode *t){<br>
+  &emsp;  if (t->r != NULL){<br>
+       &emsp;&emsp; t2 = t;<br>
+        &emsp;&emsp;return(largest(t->r));<br>
+    &emsp;}<br>
+    &emsp;else<br>
+        &emsp;&emsp;return(t->value);<br>
+}<br>
+
+
+<br>int main(){<br>
+    &emsp;int ch;<br>
+
+    &emsp;printf("1 Insert ,2 Delete\n");<br>
+    &emsp;printf("3 InorderTraversal , 4 PreorderTraversal\n");<br>
+    &emsp;printf("5 Postorder Traversal ,6 Exit\n");<br>
+    &emsp;while(1){<br>
+       &emsp;&emsp; printf("Enter your choice : ");<br>
+        &emsp;&emsp;scanf("%d", &amp;ch);<br>
+        &emsp;&emsp;switch (ch){<br>
+        &emsp;&emsp;&emsp;case 1:<br>
+            &emsp;&emsp;&emsp;&emsp;insert();<br>
+            &emsp;&emsp;&emsp;&emsp;break;<br>
+        &emsp;&emsp;&emsp;case 2:<br>
+            &emsp;&emsp;&emsp;&emsp;delete();<br>
+            &emsp;&emsp;&emsp;&emsp;break;<br>
+        &emsp;&emsp;&emsp;case 3:<br>
+            &emsp;&emsp;&emsp;&emsp;inorder(root);<br>
+            &emsp;&emsp;&emsp;&emsp;break;<br>
+        &emsp;&emsp;&emsp;case 4:<br>
+           &emsp;&emsp;&emsp;&emsp; preorder(root);<br>
+           &emsp;&emsp;&emsp;&emsp; break;<br>
+        &emsp;&emsp;&emsp;case 5:<br>
+           &emsp;&emsp;&emsp;&emsp; postorder(root);<br>
+           &emsp;&emsp;&emsp;&emsp; break;<br>
+        &emsp;&emsp;&emsp;case 6:<br>
+            &emsp;&emsp;&emsp;&emsp;exit(0);<br>
+        &emsp;&emsp;&emsp;default :<br>
+            &emsp;&emsp;&emsp;&emsp;printf("Wrong choice !!");<br>
+        &emsp;&emsp;}<br>
+    &emsp;}<br>
+&emsp;return 0;<br>
+}<br></strong></p>
+</body>
+</html>
